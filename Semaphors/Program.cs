@@ -51,6 +51,7 @@ namespace Semaphors
             foreach (var t in tasks1)
                 t.Start();
             Task.WaitAll(tasks1); // ожидаем завершения задач 
+            Ded.Release();
             Ded.WaitOne();// Как только вернулась последняя, она будит ДЕДА
             Console.WriteLine($"ДЕД разбужен и поздравляет мелких");
             Thread.Sleep(5000);
